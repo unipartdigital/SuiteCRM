@@ -1377,40 +1377,8 @@ function insert_default_settings()
 // writable).
 function make_writable($file)
 {
-    $ret_val = false;
-    if (is_file($file) || is_dir($file)) {
-        if (is_writable($file)) {
-            $ret_val = true;
-        } else {
-            $original_fileperms = fileperms($file);
-
-            // add user writable permission
-            $new_fileperms = $original_fileperms | 0x0080;
-            @sugar_chmod($file, $new_fileperms);
-            clearstatcache();
-            if (is_writable($file)) {
-                $ret_val = true;
-            } else {
-                // add group writable permission
-                $new_fileperms = $original_fileperms | 0x0010;
-                @chmod($file, $new_fileperms);
-                clearstatcache();
-                if (is_writable($file)) {
-                    $ret_val = true;
-                } else {
-                    // add world writable permission
-                    $new_fileperms = $original_fileperms | 0x0002;
-                    @chmod($file, $new_fileperms);
-                    clearstatcache();
-                    if (is_writable($file)) {
-                        $ret_val = true;
-                    }
-                }
-            }
-        }
-    }
-
-    return $ret_val;
+    # This code was removed for its own protection
+    return true;
 }
 
 function recursive_make_writable($start_file)
