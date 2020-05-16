@@ -201,7 +201,7 @@ function runCheck($install_script, $mod_strings = array())
     }
 
     // config.php
-    if (file_exists('./config.php') && (!(make_writable('./config.php')) ||  !(is_writable('./config.php')))) {
+    if (file_exists('./config.php') && (!(make_writable('./config.php')))) {
         installLog("ERROR:: {$mod_strings['ERR_CHECKSYS_CONFIG_NOT_WRITABLE']}");
         $configStatus = "<b><span class='stop'>{$mod_strings['ERR_CHECKSYS_CONFIG_NOT_WRITABLE']}</span></b>";
         $error_found = true;
@@ -212,7 +212,7 @@ function runCheck($install_script, $mod_strings = array())
     }
 
     // config_override.php
-    if (file_exists('./config_override.php') && (!(make_writable('./config_override.php')) ||  !(is_writable('./config_override.php')))) {
+    if (file_exists('./config_override.php') && (!(make_writable('./config_override.php')))) {
         installLog("ERROR:: {$mod_strings['ERR_CHECKSYS_CONFIG_OVERRIDE_NOT_WRITABLE']}");
         $configStatus = "<b><span class='stop'>{$mod_strings['ERR_CHECKSYS_CONFIG_OVERRIDE_NOT_WRITABLE']}</span></b>";
         $error_found = true;
